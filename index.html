@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Bit Food RNG</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Layer -->
+    <div class="bg-layer"></div>
+    
+    <!-- Logo Watermark di Body -->
+    <img src="assets/logo.png" alt="Logo Watermark" class="body-logo-watermark">
+
+    <div class="game-wrapper">
+        <!-- Header -->
+        <header class="glass-panel compact-header">
+            <div class="header-top">
+                <h1 class="game-title">
+                    <img src="assets/logo.png" alt="8-Bit Food RNG Logo" class="header-logo">
+                    8-Bit Food RNG
+                </h1>
+                <div class="plate-wallet">
+                    <span class="wallet-label">🍽️ Plates</span>
+                    <span id="plateCount" class="wallet-value">0</span>
+                </div>
+                <div id="buffIndicator" class="buff-indicator">⏳ No Active Buffs</div>
+            </div>
+        </header>
+
+        <!-- Spin Area -->
+        <div class="glass-panel spin-area">
+            <div id="spinDisplay" class="spin-display">
+                <span class="question-mark">?</span>
+            </div>
+            <div class="controls">
+                <button id="spinBtn" class="pixel-btn btn-spin">SPIN (-1)</button>
+                <button id="freeSpinBtn" class="pixel-btn btn-free">FREE (0)</button>
+            </div>
+        </div>
+
+        <!-- Tabs & Content -->
+        <div class="glass-panel">
+            <div class="mini-tabs" role="tablist">
+                <button class="tab-btn active" data-tab="collectionTab" role="tab" aria-selected="true">KOLEKSI</button>
+                <button class="tab-btn" data-tab="inventoryTab" role="tab" aria-selected="false">INVENTORY</button>
+                <button class="tab-btn" data-tab="shopTab" role="tab" aria-selected="false">SHOP</button>
+                <button class="tab-btn" data-tab="tradeTab" role="tab" aria-selected="false">TRADE</button>
+                <button class="tab-btn" data-tab="updateTab" role="tab" aria-selected="false">UPDATE</button>
+            </div>
+
+            <div class="tab-content-box">
+                <div id="collectionTab" class="tab-pane active">
+                    <div id="collectionGrid" class="scroll-grid"></div>
+                </div>
+                <div id="inventoryTab" class="tab-pane">
+                    <div id="inventoryGrid" class="scroll-grid"></div>
+                </div>
+                <div id="shopTab" class="tab-pane">
+                    <div id="shopGrid" class="scroll-grid"></div>
+                </div>
+                <div id="tradeTab" class="tab-pane">
+                    <div class="trade-panel">
+                        <p>Tukar 10 🟢 Common ➔ 1  Rare</p>
+                        <button id="tradeCommonBtn" class="pixel-btn mt-2">TUKAR (10x Common)</button>
+                        <p class="mt-2">Tukar 25 🟢 Common ➔ 1  Epic</p>
+                        <button id="tradeEpicBtn" class="pixel-btn mt-2">TUKAR (25x Common)</button>
+                    </div>
+                </div>
+                <div id="updateTab" class="tab-pane">
+                    <div id="updateLogList" class="update-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="game-footer">8-Bit Food RNG © 2026</footer>
+    </div>
+
+    <!-- Modal -->
+    <div id="itemModal" class="modal" tabindex="-1">
+        <div class="modal-content">
+            <button id="closeModal" class="close-btn">X</button>
+            <div id="modalImage" class="modal-image"></div>
+            <h2 id="modalTitle" class="modal-title">Nama Item</h2>
+            <div id="modalRarity" class="modal-rarity">RARITY</div>
+            <p id="modalDesc" class="modal-desc">Deskripsi item...</p>
+            <div class="modal-actions">
+                <button id="consumeBtn" class="action-btn consume-btn">MAKAN (+1)</button>
+                <button id="keepBtn" class="action-btn keep-btn">SIMPAN</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

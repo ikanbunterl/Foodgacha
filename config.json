@@ -1,0 +1,80 @@
+{
+    "gameName": "8-Bit Food RNG",
+    "version": "1.2.0",
+    "spinCost": 1,
+    "freeSpinInterval": 3600000,
+    "freeSpinMax": 5,
+    "rarityWeights": {
+        "common": 60,
+        "rare": 25,
+        "epic": 12,
+        "legendary": 3
+    },
+    "plateReward": {
+        "consume": 1,
+        "bonus": {
+            "streak": 5,
+            "collection": 10
+        }
+    },
+    "achievements": {
+        "firstSpin": "Spin pertama!",
+        "collector10": "Kolektor 10 item",
+        "collector50": "Kolektor 50 item",
+        "foodie": "Foodie sejati - konsumsi 20 makanan",
+        "plateMaster": "Plate Master - kumpulkan 50 piring"
+    },
+    "trade": {
+        "commonToRareCost": 10,
+        "commonToEpicCost": 25
+    },
+    "shopBackgrounds": [
+        { "id": "clouds", "name": "Default Clouds", "price": 0, "path": "assets/background/clouds.png" },
+        { "id": "clouds2", "name": "Clouds V2", "price": 15, "path": "assets/background/clouds2.png" },
+        { "id": "aurora", "name": "Aurora", "price": 40, "path": "assets/background/aurora.png" },
+        { "id": "island", "name": "Tropical Island", "price": 50, "path": "assets/background/island.png" },
+        { "id": "moai", "name": "Moai Statue", "price": 60, "path": "assets/background/moai.png" },
+        { "id": "tree", "name": "Giant Tree", "price": 35, "path": "assets/background/tree.png" },
+        { "id": "mountain", "name": "Snow Mountain", "price": 45, "path": "assets/background/mountain.png" },
+        { "id": "forest", "name": "Deep Forest", "price": 40, "path": "assets/background/forest.png" }
+    ],
+    "updateLog": [
+        {
+            "v": "1.2.0",
+            "date": "2026-05-22",
+            "changes": [
+                "UI/UX Overhaul - Design modern & responsive",
+                "Gradient backgrounds untuk semua elemen",
+                "Improved button interactions & hover effects",
+                "Better mobile responsiveness & scaling",
+                "Enhanced modal animations & transitions",
+                "Smoother shimmer & glow effects",
+                "Better visual hierarchy & spacing",
+                "Improved color contrast & accessibility",
+                "Optimized performance & animations",
+                "Better scrollbar styling",
+                "Refined spin animation & feedback",
+                "Updated tab styling & interactions"
+            ]
+        },
+        {
+            "v": "1.1.0",
+            "date": "2026-05-21",
+            "changes": [
+                "Dynamic RNG dari config",
+                "Sistem Achievement",
+                "Buff Makanan",
+                "Trade & Shop",
+                "10 Makanan Baru",
+                "Custom Backgrounds"
+            ]
+        },
+        {
+            "v": "1.0.0",
+            "date": "2026-05-15",
+            "changes": [
+                "Rilis awal 8-Bit Food RNG"
+            ]
+        }
+    ]
+}

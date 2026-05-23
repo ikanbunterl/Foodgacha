@@ -1,80 +1,96 @@
 {
-    "gameName": "8-Bit Food RNG",
-    "version": "1.2.0",
-    "spinCost": 1,
-    "freeSpinInterval": 3600000,
-    "freeSpinMax": 5,
-    "rarityWeights": {
-        "common": 60,
-        "rare": 25,
-        "epic": 12,
-        "legendary": 3
+  "gameName": "8-Bit Food RNG",
+  "version": "1.4.0",
+  "spinCost": 1,
+  "freeSpinInterval": 3600000,
+  "freeSpinMax": 5,
+  "rarityWeights": {
+    "common": 60,
+    "rare": 25,
+    "epic": 12,
+    "legendary": 3
+  },
+  "plateReward": {
+    "consume": 1,
+    "bonus": {
+      "streak": 5,
+      "collection": 10
+    }
+  },
+  "achievements": {
+    "firstSpin": "Spin pertama!",
+    "collector10": "Kolektor 10 item",
+    "collector50": "Kolektor 50 item",
+    "foodie": "Foodie sejati - konsumsi 20 makanan",
+    "plateMaster": "Plate Master - kumpulkan 50 piring"
+  },
+  "shopBackgrounds": [
+    { "id": "clouds", "name": "Default Clouds", "price": 0, "path": "assets/background/clouds.png" },
+    { "id": "clouds2", "name": "Clouds V2", "price": 15, "path": "assets/background/clouds2.png" },
+    { "id": "aurora", "name": "Aurora", "price": 40, "path": "assets/background/aurora.png" },
+    { "id": "island", "name": "Tropical Island", "price": 50, "path": "assets/background/island.png" },
+    { "id": "moai", "name": "Moai Statue", "price": 60, "path": "assets/background/moai.png" },
+    { "id": "tree", "name": "Giant Tree", "price": 35, "path": "assets/background/tree.png" },
+    { "id": "mountain", "name": "Snow Mountain", "price": 45, "path": "assets/background/mountain.png" },
+    { "id": "forest", "name": "Deep Forest", "price": 40, "path": "assets/background/forest.png" }
+  ],
+  "liveBackgrounds": [
+    { "id": "sky_island", "name": "🏝️ Sky Island Pixel", "price": 30, "path": "assets/backgrounds/live/sky_island.mp4" },
+    { "id": "munchlax", "name": "😴 Munchlax Sleeping", "price": 35, "path": "assets/backgrounds/live/munchlax.mp4" },
+    { "id": "alice_city", "name": "🏙️ Alice City Pixel", "price": 40, "path": "assets/backgrounds/live/alice_city.mp4" },
+    { "id": "pixel_city_lofi", "name": "🌃 Pixel City Lofi", "price": 45, "path": "assets/backgrounds/live/pixel_city_lofi.mp4" },
+    { "id": "cat_sakura", "name": "🐱 Cat Sakura Street", "price": 40, "path": "assets/backgrounds/live/cat_sakura.mp4" },
+    { "id": "night_eterna", "name": "🚴 Night Cycle to Eterna", "price": 50, "path": "assets/backgrounds/live/night_eterna.mp4" }
+  ],
+  "credits": [
+    { "name": "MoeWalls.com", "source": "Pixel Art Backgrounds Collection", "link": "https://moewalls.com/category/pixel-art" },
+    { "name": "Stockgiu", "source": "Arcade Game World Pixel Scene", "link": "https://www.magnific.com/free-vector/arcade-game-world-pixel-scene_4815143.htm" },
+    { "name": "Freepik", "source": "Pixel Art Rural Landscape", "link": "https://www.magnific.com/free-vector/pixel-art-rural-landscape-background_49661326.htm" },
+    { "name": "Pikisuperstar", "source": "Pixel Art Rural Landscape V2", "link": "https://www.magnific.com/free-vector/pixel-art-rural-landscape-background_49685499.htm" }
+  ],
+  "updateLog": [
+    {
+      "v": "1.4.0",
+      "date": "2026-05-24",
+      "changes": [
+        "🔇 Added Audio System: SFX (Spin/Win) & Background Music (BGM1)",
+        "⚙️ New Settings Tab: Volume Control, Dark Mode, Power Saving",
+        "❌ Added Sidebar Close Button for better UX",
+        "🖼️ Fixed Static/Live Background switching bug",
+        "📦 Fixed Inventory & Collection rendering bug",
+        "💾 Optimized state saving & audio caching"
+      ]
     },
-    "plateReward": {
-        "consume": 1,
-        "bonus": {
-            "streak": 5,
-            "collection": 10
-        }
+    {
+      "v": "1.3.0",
+      "date": "2026-05-23",
+      "changes": [
+        "🎨 UI/UX Overhaul: MacBook-style bottom toolbar",
+        "📍 Plates bar always visible at top edge",
+        "🎯 Spin area centered with glowing semi-transparent frame",
+        "🛒 Shop: One-time purchase system for backgrounds",
+        "🎬 Added 6 Live Backgrounds (.mp4) with cache-friendly loading",
+        "👨‍💻 New Creator tab with credits & attribution links"
+      ]
     },
-    "achievements": {
-        "firstSpin": "Spin pertama!",
-        "collector10": "Kolektor 10 item",
-        "collector50": "Kolektor 50 item",
-        "foodie": "Foodie sejati - konsumsi 20 makanan",
-        "plateMaster": "Plate Master - kumpulkan 50 piring"
+    {
+      "v": "1.2.0",
+      "date": "2026-05-22",
+      "changes": [
+        "UI/UX Overhaul - Design modern & responsive",
+        "Improved button interactions & hover effects",
+        "Better mobile responsiveness & scaling"
+      ]
     },
-    "trade": {
-        "commonToRareCost": 10,
-        "commonToEpicCost": 25
+    {
+      "v": "1.1.0",
+      "date": "2026-05-21",
+      "changes": ["Dynamic RNG from config", "Achievement System", "Food Buffs", "Trade & Shop"]
     },
-    "shopBackgrounds": [
-        { "id": "clouds", "name": "Default Clouds", "price": 0, "path": "assets/background/clouds.png" },
-        { "id": "clouds2", "name": "Clouds V2", "price": 15, "path": "assets/background/clouds2.png" },
-        { "id": "aurora", "name": "Aurora", "price": 40, "path": "assets/background/aurora.png" },
-        { "id": "island", "name": "Tropical Island", "price": 50, "path": "assets/background/island.png" },
-        { "id": "moai", "name": "Moai Statue", "price": 60, "path": "assets/background/moai.png" },
-        { "id": "tree", "name": "Giant Tree", "price": 35, "path": "assets/background/tree.png" },
-        { "id": "mountain", "name": "Snow Mountain", "price": 45, "path": "assets/background/mountain.png" },
-        { "id": "forest", "name": "Deep Forest", "price": 40, "path": "assets/background/forest.png" }
-    ],
-    "updateLog": [
-        {
-            "v": "1.2.0",
-            "date": "2026-05-22",
-            "changes": [
-                "UI/UX Overhaul - Design modern & responsive",
-                "Gradient backgrounds untuk semua elemen",
-                "Improved button interactions & hover effects",
-                "Better mobile responsiveness & scaling",
-                "Enhanced modal animations & transitions",
-                "Smoother shimmer & glow effects",
-                "Better visual hierarchy & spacing",
-                "Improved color contrast & accessibility",
-                "Optimized performance & animations",
-                "Better scrollbar styling",
-                "Refined spin animation & feedback",
-                "Updated tab styling & interactions"
-            ]
-        },
-        {
-            "v": "1.1.0",
-            "date": "2026-05-21",
-            "changes": [
-                "Dynamic RNG dari config",
-                "Sistem Achievement",
-                "Buff Makanan",
-                "Trade & Shop",
-                "10 Makanan Baru",
-                "Custom Backgrounds"
-            ]
-        },
-        {
-            "v": "1.0.0",
-            "date": "2026-05-15",
-            "changes": [
-                "Rilis awal 8-Bit Food RNG"
-            ]
-        }
-    ]
+    {
+      "v": "1.0.0",
+      "date": "2026-05-15",
+      "changes": ["Rilis awal 8-Bit Food RNG"]
+    }
+  ]
 }

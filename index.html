@@ -1,110 +1,146 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#0f0f0f">
-  <title>8-Bit Food RNG</title>
-  <link rel="icon" type="image/x-icon" href="assets/logo.png">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Gacha!</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 🎨 BACKGROUND LAYERS -->
-  <div class="bg-layer"></div>
-  <div class="live-bg-layer">
-    <video id="liveBgVideo" class="live-bg-video" autoplay muted loop playsinline></video>
+<!-- Audio -->
+<audio id="bgm" loop src="assets/audio/bgm.mp3"></audio>
+<audio id="sfx-spin" src="assets/audio/spin.mp3"></audio>
+<audio id="sfx-win" src="assets/audio/win.mp3"></audio>
+
+<!-- Backgrounds -->
+<div class="bg-layer"></div>
+<div class="live-bg-layer">
+  <video id="liveBgVideo" class="live-bg-video" muted loop playsinline></video>
+</div>
+
+<!-- Header -->
+<header class="app-header">
+  <div class="logo">FOOD GACHA!</div>
+  <div class="header-center">
+    <div class="currency-badge">🍽️ <span id="plateCount">0</span></div>
+    <div class="currency-badge gem">💎 <span id="gemCount">0</span></div>
   </div>
-
-  <!-- 📊 TOP BAR -->
-  <div class="plates-bar">
-    <span class="wallet-value" id="plateCount">0</span>
-    <span class="buff-indicator" id="buffIndicator">⏳ No Buffs</span>
+  <div class="header-right">
+    <div id="buffIndicator" class="buff-indicator">⏳ No Buffs</div>
+    <div class="profile-avatar">👤</div>
   </div>
+</header>
 
-  <!-- ☰ SIDEBAR TOGGLE -->
-  <button class="sidebar-toggle" onclick="toggleSidebar()">☰ MENU</button>
-
-  <!-- 📦 SIDEBAR CONTAINER -->
-  <div class="sidebar-container">
-    <!-- 🆕 CLOSE BUTTON -->
-    <button class="sidebar-close-btn" onclick="toggleSidebar()" title="Tutup Menu">✕</button>
-
-    <div class="sidebar-tabs">
-      <button class="sidebar-tab-btn active" data-tab="collectionTab">📦 Koleksi</button>
-      <button class="sidebar-tab-btn" data-tab="inventoryTab">🎒 Inv</button>
-      <button class="sidebar-tab-btn" data-tab="shopTab">🛒 Shop</button>
-      <button class="sidebar-tab-btn" data-tab="creatorTab">👨‍💻 Dev</button>
-      <button class="sidebar-tab-btn" data-tab="logTab">📝 Log</button>
-      <button class="sidebar-tab-btn" data-tab="settingsTab">⚙️</button>
+<!-- Main Content -->
+<main class="app-main">
+  <!-- Home / Gacha View -->
+  <div id="homeView" class="view active">
+    <div class="event-banner">
+      <div class="banner-content">
+        <h2>🎉 Sweet Fiesta Gacha</h2>
+        <p>Dapatkan item langka, legendary, & SHINY!</p>
+      </div>
     </div>
-
-    <div class="sidebar-tabs" id="subTabsContainer">
-      <button class="sidebar-tab-btn active" data-subtab="all">All</button>
-      <button class="sidebar-tab-btn" data-subtab="common">🔵</button>
-      <button class="sidebar-tab-btn" data-subtab="rare">🟣</button>
-      <button class="sidebar-tab-btn" data-subtab="epic">🟡</button>
-      <button class="sidebar-tab-btn" data-subtab="legendary">🔶</button>
-    </div>
-
-    <div class="sidebar-content">
-      <div class="tab-pane active" id="collectionTab"><div class="scroll-grid" id="collectionGrid"></div></div>
-      <div class="tab-pane" id="inventoryTab"><div class="scroll-grid" id="inventoryGrid"></div></div>
-      <div class="tab-pane" id="shopTab"><div class="scroll-grid" id="shopGrid"></div></div>
-      <div class="tab-pane" id="creatorTab"><div id="creatorList"></div></div>
-      <div class="tab-pane" id="logTab"><div id="updateLogList"></div></div>
-      
-      <!-- 🆕 SETTINGS TAB -->
-      <div class="tab-pane" id="settingsTab">
-        <div class="settings-group">
-          <label>🔊 Volume</label>
-          <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.8">
-        </div>
-        <div class="settings-group">
-          <label>🌙 Dark Mode</label>
-          <button id="darkModeToggle" class="toggle-btn">OFF</button>
-        </div>
-        <div class="settings-group">
-          <label>🔋 Power Saving</label>
-          <button id="powerSavingToggle" class="toggle-btn">OFF</button>
-        </div>
+    
+    <div class="gacha-section">
+      <div id="spinDisplay" class="gacha-display">
+        <div class="question-mark">?</div>
+      </div>
+      <div class="pity-container">
+        <div class="pity-bar-bg"><div id="pityBar" class="pity-bar-fill"></div></div>
+        <small>Pity: <span id="pityCount">0</span>/100</small>
+      </div>
+      <div class="gacha-controls">
+        <button id="spinBtn" class="btn btn-spin">🎲 PULL (1 🍽️)</button>
+        <button id="multiSpinBtn" class="btn btn-multi">🎲 10x PULL (9 🍽️)</button>
+        <button id="freeSpinBtn" class="btn btn-free">FREE (0)</button>
       </div>
     </div>
   </div>
 
-  <!-- 🎮 MAIN GAME -->
-  <main class="game-main">
-    <div class="game-title"><h1>8-BIT FOOD RNG</h1></div>
-    <div class="spin-area">
-      <div class="spin-frame"></div>
-      <div class="spin-display" id="spinDisplay"><span class="question-mark">?</span></div>
-    </div>
-    <div class="controls-area">
-      <button class="ctrl-btn btn-spin" id="spinBtn">🎲 SPIN (-1)</button>
-      <button class="ctrl-btn btn-free" id="freeSpinBtn">FREE (0)</button>
-    </div>
-  </main>
-
-  <!-- 🖼️ MODAL -->
-  <div class="modal" id="itemModal">
-    <div class="modal-content">
-      <button class="close-btn" id="closeModal">✕</button>
-      <div class="modal-image" id="modalImage"></div>
-      <h2 class="modal-title" id="modalTitle">Nama Item</h2>
-      <span class="modal-rarity" id="modalRarity">RARITY</span>
-      <p class="modal-desc" id="modalDesc">Deskripsi...</p>
-      <div class="modal-actions">
-        <button class="action-btn consume-btn" id="consumeBtn">MAKAN</button>
-        <button class="action-btn keep-btn" id="keepBtn">SIMPAN</button>
+  <!-- Collection View -->
+  <div id="collectionView" class="view">
+    <div class="section-header">
+      <h3>📦 My Collection</h3>
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn" data-filter="common">Common</button>
+        <button class="tab-btn" data-filter="rare">Rare</button>
+        <button class="tab-btn" data-filter="epic">Epic</button>
+        <button class="tab-btn" data-filter="legendary">Legendary</button>
       </div>
     </div>
+    <div id="collectionGrid" class="grid-container"></div>
   </div>
 
-  <!-- 🔊 AUDIO SYSTEM -->
-  <audio id="sfx-spin" src="assets/sounds/spin.mp3" preload="auto"></audio>
-  <audio id="sfx-win" src="assets/sounds/win.mp3" preload="auto"></audio>
-  <audio id="bgm" src="assets/sounds/bgm1.mp3" loop preload="auto"></audio>
+  <!-- Shop View -->
+  <div id="shopView" class="view">
+    <div class="section-header"><h3>🛒 Background Shop</h3></div>
+    <div id="shopGrid" class="grid-container"></div>
+    
+    <div class="section-header" style="margin-top:20px;"><h3>✨ Upgrades & Charms (Pakai 💎)</h3></div>
+    <div id="upgradeGrid" class="grid-container"></div>
+  </div>
 
-  <script src="script.js"></script>
+  <!-- Settings View -->
+  <div id="settingsView" class="view">
+    <div class="section-header"><h3>⚙️ Settings</h3></div>
+    <div class="settings-group">
+      <label>🔊 Volume</label>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.8">
+    </div>
+    <div class="settings-group">
+      <label>🌙 Dark Mode</label>
+      <button id="darkModeToggle" class="toggle-btn">OFF</button>
+    </div>
+    <div class="settings-group">
+      <label>🔋 Power Saving</label>
+      <button id="powerSavingToggle" class="toggle-btn">OFF</button>
+    </div>
+    <div class="settings-group">
+      <label>👨‍💻 Credits</label>
+      <div id="creatorList" class="credits-list"></div>
+    </div>
+    <div class="settings-group">
+      <label>📝 Update Log</label>
+      <div id="updateLogList" class="update-log"></div>
+    </div>
+  </div>
+</main>
+
+<!-- Navigation -->
+<nav class="app-nav">
+  <button class="nav-btn active" data-view="homeView">🏠 Home</button>
+  <button class="nav-btn" data-view="collectionView">🎒 Inv</button>
+  <button class="nav-btn" data-view="shopView">🛒 Shop</button>
+  <button class="nav-btn" data-view="settingsView">⚙️ Set</button>
+</nav>
+
+<!-- Single Item Modal -->
+<div id="itemModal" class="modal">
+  <div class="modal-content">
+    <button id="closeModal" class="close-btn">✕</button>
+    <div id="modalImage" class="modal-image"></div>
+    <h2 id="modalTitle" class="modal-title">Nama Item</h2>
+    <div id="modalRarity" class="modal-rarity">RARITY</div>
+    <p id="modalDesc" class="modal-desc">Deskripsi...</p>
+    <div class="modal-actions">
+      <button id="consumeBtn" class="action-btn consume-btn">MAKAN</button>
+      <button id="keepBtn" class="action-btn keep-btn">SIMPAN</button>
+    </div>
+  </div>
+</div>
+
+<!-- Multi-Pull Modal -->
+<div id="multiModal" class="modal">
+  <div class="modal-content">
+    <h2 class="modal-title">🎉 10x Pull Results!</h2>
+    <div id="multiModalGrid" class="grid-container" style="max-height: 300px; overflow-y: auto; grid-template-columns: repeat(5, 1fr);"></div>
+    <button id="closeMultiModal" class="action-btn keep-btn" style="margin-top: 15px; width: 100%;">OK</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

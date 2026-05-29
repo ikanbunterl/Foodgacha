@@ -1,63 +1,196 @@
 {
-  "gameName": "8-Bit Food RNG",
-  "version": "1.4.0",
-  "spinCost": 1,
-  "freeSpinInterval": 3600000,
-  "freeSpinMax": 5,
-  "rarityWeights": {
-    "common": 60,
-    "rare": 25,
-    "epic": 12,
-    "legendary": 3
-  },
-  "plateReward": {
-    "consume": 1,
-    "bonus": {
-      "streak": 5,
-      "collection": 10
-    }
-  },
-  "achievements": {
-    "firstSpin": "Spin pertama!",
-    "collector10": "Kolektor 10 item",
-    "collector50": "Kolektor 50 item",
-    "foodie": "Foodie sejati - konsumsi 20 makanan",
-    "plateMaster": "Plate Master - kumpulkan 50 piring"
-  },
-  "shopBackgrounds": [
-    { "id": "clouds", "name": "Default Clouds", "price": 0, "path": "assets/background/clouds.png" },
-    { "id": "clouds2", "name": "Clouds V2", "price": 15, "path": "assets/background/clouds2.png" },
-    { "id": "aurora", "name": "Aurora", "price": 40, "path": "assets/background/aurora.png" },
-    { "id": "island", "name": "Tropical Island", "price": 50, "path": "assets/background/island.png" },
-    { "id": "moai", "name": "Moai Statue", "price": 60, "path": "assets/background/moai.png" },
-    { "id": "tree", "name": "Giant Tree", "price": 35, "path": "assets/background/tree.png" },
-    { "id": "mountain", "name": "Snow Mountain", "price": 45, "path": "assets/background/mountain.png" },
-    { "id": "forest", "name": "Deep Forest", "price": 40, "path": "assets/background/forest.png" }
-  ],
-  "liveBackgrounds": [
-    { "id": "sky_island", "name": "🏝️ Sky Island Pixel", "price": 30, "path": "assets/backgrounds/live/sky_island.mp4" },
-    { "id": "munchlax", "name": "😴 Munchlax Sleeping", "price": 35, "path": "assets/backgrounds/live/munchlax.mp4" },
-    { "id": "alice_city", "name": "🏙️ Alice City Pixel", "price": 40, "path": "assets/backgrounds/live/alice_city.mp4" },
-    { "id": "pixel_city_lofi", "name": "🌃 Pixel City Lofi", "price": 45, "path": "assets/backgrounds/live/pixel_city_lofi.mp4" },
-    { "id": "cat_sakura", "name": "🐱 Cat Sakura Street", "price": 40, "path": "assets/backgrounds/live/cat_sakura.mp4" },
-    { "id": "night_eterna", "name": "🚴 Night Cycle to Eterna", "price": 50, "path": "assets/backgrounds/live/night_eterna.mp4" }
-  ],
-  "credits": [
-    { "name": "MoeWalls.com", "source": "Pixel Art Backgrounds Collection", "link": "https://moewalls.com/category/pixel-art" },
-    { "name": "Stockgiu", "source": "Arcade Game World Pixel Scene", "link": "https://www.magnific.com/free-vector/arcade-game-world-pixel-scene_4815143.htm" },
-    { "name": "Freepik", "source": "Pixel Art Rural Landscape", "link": "https://www.magnific.com/free-vector/pixel-art-rural-landscape-background_49661326.htm" },
-    { "name": "Pikisuperstar", "source": "Pixel Art Rural Landscape V2", "link": "https://www.magnific.com/free-vector/pixel-art-rural-landscape-background_49685499.htm" }
-  ],
-  "updateLog": [
+ "gameName": "8-Bit Food RNG",
+ "version": "1.8.0",
+ "spinCost": 1,
+ "freeSpinInterval": 3600000,
+ "freeSpinMax": 5,
+ "rarityWeights": {
+   "common": 60,
+   "rare": 25,
+   "epic": 12,
+   "legendary": 3
+ },
+ "pity": {
+   "epicGuarantee": 40,
+   "legendaryGuarantee": 100
+ },
+ "plateReward": {
+   "consume": 1,
+   "bonus": { "streak": 5, "collection": 10 }
+ },
+ "achievements": {
+   "firstSpin": "Spin pertama!",
+   "collector10": "Kolektor 10 item",
+   "collector50": "Kolektor 50 item",
+   "foodie": "Foodie sejati - konsumsi 20 makanan",
+   "plateMaster": "Plate Master - kumpulkan 50 piring"
+ },
+ "upgrades": [
+   { "id": "clover", "name": "🍀 Four-Leaf Clover", "type": "permanent", "price": 5, "description": "+0.5% base luck untuk semua rarity", "effect": { "luckBonus": 0.5 } },
+   { "id": "magnet", "name": "🧲 Plate Magnet", "type": "permanent", "price": 10, "description": "+10% chance dapat 2x piring saat consume", "effect": { "doublePlateChance": 0.1 } },
+   { "id": "timer", "name": "⏰ Quick Recharge", "type": "consumable", "price": 3, "description": "Kurangi waktu free spin (1x pakai)", "effect": { "freeSpinReduction": 1800000 } },
+   { "id": "luckpotion", "name": "🧪 Luck Potion", "type": "consumable", "price": 4, "description": "+3 Double Luck spins instan", "effect": { "addDoubleLuck": 3 } }
+ ],
+ "shopBackgrounds": [
+   { "id": "clouds", "name": "Default Clouds", "price": 0, "path": "assets/background/clouds.png" },
+   { "id": "clouds2", "name": "Clouds V2", "price": 15, "path": "assets/background/clouds2.png" },
+   { "id": "aurora", "name": "Aurora", "price": 40, "path": "assets/background/aurora.png" },
+   { "id": "island", "name": "Tropical Island", "price": 50, "path": "assets/background/island.png" },
+   { "id": "moai", "name": "Moai Statue", "price": 60, "path": "assets/background/moai.png" },
+   { "id": "tree", "name": "Giant Tree", "price": 35, "path": "assets/background/tree.png" },
+   { "id": "mountain", "name": "Snow Mountain", "price": 45, "path": "assets/background/mountain.png" },
+   { "id": "forest", "name": "Deep Forest", "price": 40, "path": "assets/background/forest.png" }
+ ],
+ "liveBackgrounds": [
+   { "id": "sky_island", "name": "🏝️ Sky Island Pixel", "price": 30, "path": "assets/backgrounds/live/sky_island.mp4" },
+   { "id": "munchlax", "name": "😴 Munchlax Sleeping", "price": 35, "path": "assets/backgrounds/live/munchlax.mp4" },
+   { "id": "alice_city", "name": "🏙️ Alice City Pixel", "price": 40, "path": "assets/backgrounds/live/alice_city.mp4" },
+   { "id": "pixel_city_lofi", "name": "🌃 Pixel City Lofi", "price": 45, "path": "assets/backgrounds/live/pixel_city_lofi.mp4" },
+   { "id": "cat_sakura", "name": "🐱 Cat Sakura Street", "price": 40, "path": "assets/backgrounds/live/cat_sakura.mp4" },
+   { "id": "night_eterna", "name": "🚴 Night Cycle to Eterna", "price": 50, "path": "assets/backgrounds/live/night_eterna.mp4" }
+ ],
+ "credits": [
+   { "name": "MoeWalls.com", "source": "Pixel Art Backgrounds Collection", "link": "https://moewalls.com/category/pixel-art" },
+   { "name": "Stockgiu", "source": "Arcade Game World Pixel Scene", "link": "https://www.magnific.com/free-vector/arcade-game-world-pixel-scene_4815143.htm" },
+   { "name": "Freepik", "source": "Pixel Art Rural Landscape", "link": "https://www.magnific.com/free-vector/pixel-art-rural-landscape-background_49661326.htm" },
+   { "name": "Pikisuperstar", "source": "Pixel Art Rural Landscape V2", "link": "https://www.magnific.com/free-vector/pixel-art-rural-landscape-background_49685499.htm" }
+ ],
+ "updateLog": [
+   {
+     "v": "1.8.0",
+     "date": "2026-05-29",
+     "changes": [
+       "✨ [NEW] Sistem Shiny/Golden Food (1% chance, 2x reward!) - Akhirnya diimplementasikan!",
+       "🎰 [NEW] Pity System: Jaminan Epic (40x) & Legendary (100x) anti-RNG buruk",
+       "🎲 [NEW] 10x Multi-Pull dengan diskon piring",
+       "💎 [NEW] Gems Currency & Tab Upgrades (Clover, Magnet, dll)",
+       "🏆 [FIX] Semua Achievement kini berfungsi dengan benar",
+       "🔧 [FIX] Merapikan syntax error fatal di JS yang bikin shop & modal crash",
+       "👆 [UX] Player sekarang bisa klik item di Collection untuk langsung memakannya"
+     ]
+   },
+   {
+     "v": "1.7.3",
+     "date": "2026-05-28",
+     "changes": [ "🎨 [UI] Neo-Brutalism buttons", "✨ [Visual] Dynamic rarity glow", "🌑 [UI] Top bar minimalis gelap" ]
+   },
+   {
+     "v": "1.7.3",
+     "date": "2026-05-28",
+     "changes": [ "🎨 [UI] Neo-Brutalism buttons", "✨ [Visual] Dynamic rarity glow", "🌑 [UI] Top bar minimalis gelap" ]
+   },
+    {
+      "v": "1.7.3",
+      "date": "2026-05-28",
+      "changes": [
+        "🎨 [UI] Neo-Brutalism buttons dengan cubic-bezier bounce effect",
+        "✨ [Visual] Dynamic rarity glow: rare/epic/legendary dengan outer shadow",
+        "🌑 [UI] Top bar minimalis gelap dengan glassmorphism + neon border",
+        "🎯 [UX] Micro-transitions pada item cards: hover lift effect",
+        "🌀 [UI] Minimalist scrollbar untuk sidebar content",
+        "🖼️ [Fix] .spin-display locked size + dark backdrop + image sizing fix",
+        "📱 [Responsive] Mobile fix untuk spin-display di layar kecil",
+        "🔤 [A11y] Text contrast fix: hitam untuk elemen background putih",
+        "🌈 [Visual] Enhanced rarity colors dengan background tint",
+        "🔍 [UX] Search input & filter button contrast improvement",
+        "♿ [A11y] High contrast mode optimization dengan border tebal & solid bg",
+        "⚡ [Perf] Optimized CSS transitions untuk power saving compatibility"
+      ]
+    },
+    {
+      "v": "1.7.2",
+      "date": "2026-05-28",
+      "changes": [
+        "🔴 [CRITICAL] Fixed spin not working - resolved fatal syntax errors in JS",
+        "🔴 [CRITICAL] Fixed audio system - added missing <audio> tags & unlocked playback logic",
+        "🔴 [CRITICAL] Reconstructed index.html with complete DOM structure matching all JS/CSS selectors",
+        "🟡 Normalized JSON keys (removed trailing spaces) to prevent undefined config errors",
+        "🟡 Stabilized spin state management (isSpinning flag, clearInterval safety, button disable)",
+        "🟡 Added cross-file validation for all DOM queries and event listeners",
+        "💾 Ready for production deployment"
+      ]
+    },
+    {
+      "v": "1.7.0",
+      "date": "2026-05-28",
+      "changes": [
+        "🔴 Fixed spin size inconsistency - fixed 180x180px container with flex-shrink: 0",
+        "🔴 Fixed double spin click issue - added isSpinning state flag",
+        "🔴 Fixed shiny item display bug - shiny status properly tracked",
+        "🟡 Improved modal display - shiny items display ✨ correctly",
+        "✨ Added Shiny/Golden Food variant system with 1% chance",
+        "✨ Added Luck Charm Upgrades shop tab",
+        "💾 Enhanced save system for shiny items & upgrades"
+      ]
+    },
+    {
+      "v": "1.6.0",
+      "date": "2026-05-26",
+      "changes": [
+        "✨ Added Shiny/Golden Food variant system with 1% chance on any spin",
+        "✨ Added Luck Charm Upgrades shop tab with permanent & consumable buffs",
+        "✨ Improved UI/UX: removed blur effects from spin area for cleaner 8-bit aesthetic",
+        "✨ Added click-outside-to-close menu logic, removed redundant close button",
+        "✨ Updated credits section with proper attribution links for all assets",
+        "🟡 Optimized shiny effect rendering with CSS-only animations (no new assets)",
+        "🟡 Added upgrade persistence in save system with validation",
+        "⚡ Improved menu toggle performance with event delegation",
+        "💾 Enhanced save data structure to support shiny items and upgrades"
+      ]
+    },
+    {
+      "v": "1.5.3",
+      "date": "2026-05-24",
+      "changes": [
+        "🔴 [CRITICAL] Fixed arrow function spacing (=>) throughout script",
+        "🔴 [CRITICAL] Fixed template literal syntax in renderShop header creation",
+        "🔴 [CRITICAL] Fixed showModal - added missing parenthesis at end of function",
+        "🔴 [CRITICAL] Fixed typo: variable 'url' undefined in lazy loader - added const declaration",
+        "🔴 [CRITICAL] Fixed renderItemList parameter handling - removed excessive params",
+        "🔴 [CRITICAL] Fixed rarity scope in handleTooltip - now uses card.dataset.rarity",
+        "🟡 Fixed memory leak in runSpinAnimation - clear spinInterval in finalizeSpin",
+        "🟡 Fixed renderCreatorTab - replaced innerHTML += with createElement for better performance",
+        "🟡 Fixed renderUpdateLog - replaced innerHTML with proper DOM creation",
+        "🟡 Fixed Object.entries arrow function spacing in rarityWeightsMap calculation",
+        "🟡 Fixed forEach arrow function in applyAudioSettings - proper spacing",
+        "✨ Added validateGameState() to ensure all game state properties are valid on load",
+        "✨ Added fallback data handling in catch block for better error recovery",
+        "✨ Added retry mechanism for BGM audio playback unlock",
+        "✨ Added pulse animation class toggle for buff indicator visibility",
+        "✨ Improved error handling with try-catch in JSON loading with detailed console logs",
+        "✨ Added spinInterval global tracking to prevent setInterval leaks",
+        "🎨 Added dataset.rarity to cards for more reliable rarity detection",
+        "🎨 Improved tooltip accuracy by using explicit rarity attribute",
+        "📱 Added better mobile responsiveness checks in power saving mode",
+        "⚡ Optimized DOM creation by replacing all innerHTML += patterns with createElement",
+        "⚡ Improved lazy loader initialization and cleanup",
+        "💾 Enhanced save debounce timing and validation",
+        "📝 Complete code refactor for maintainability and production readiness"
+      ]
+    },
+    {
+      "v": "1.5.0",
+      "date": "2026-05-01",
+      "changes": [
+        "✨ Added new live background category with animated video backgrounds",
+        "✨ Added new shop backgrounds with pixel art themes",
+        "✨ Added credits section to acknowledge asset creators",
+        "✨ Added detailed update log tracking for transparency on changes",
+        "🟡 Improved spin animation performance and visual effects",
+        "🟡 Improved tooltip design and information clarity",
+        "🟡 Improved mobile responsiveness and layout adjustments",
+        "⚡ Optimized DOM manipulation for better performance",
+        "⚡ Optimized audio handling and added user controls for BGM and SFX",
+        "💾 Improved save/load reliability and added error handling for corrupted data"
+      ]
+    },
     {
       "v": "1.4.0",
       "date": "2026-05-24",
       "changes": [
-        "🔇 Added Audio System: SFX (Spin/Win) & Background Music (BGM1)",
-        "⚙️ New Settings Tab: Volume Control, Dark Mode, Power Saving",
-        "❌ Added Sidebar Close Button for better UX",
-        "🖼️ Fixed Static/Live Background switching bug",
-        "📦 Fixed Inventory & Collection rendering bug",
+        "🔇 Added Audio System: SFX & BGM",
+        "⚙️ New Settings Tab: Volume, Dark Mode, Power Saving",
+        "🖼️ Fixed Static/Live Background switching",
         "💾 Optimized state saving & audio caching"
       ]
     },
@@ -85,12 +218,19 @@
     {
       "v": "1.1.0",
       "date": "2026-05-21",
-      "changes": ["Dynamic RNG from config", "Achievement System", "Food Buffs", "Trade & Shop"]
+      "changes": [
+        "Dynamic RNG from config",
+        "Achievement System",
+        "Food Buffs",
+        "Trade & Shop"
+      ]
     },
     {
       "v": "1.0.0",
       "date": "2026-05-15",
-      "changes": ["Rilis awal 8-Bit Food RNG"]
+      "changes": [
+        "Rilis awal 8-Bit Food RNG"
+      ]
     }
   ]
 }
